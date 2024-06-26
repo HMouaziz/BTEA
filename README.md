@@ -1,7 +1,3 @@
-Here's a refactored project document based on your latest requirements and changes, focusing on backend technology exploration and analysis while keeping a standard frontend and deployment strategy.
-
----
-
 ## Project Document
 
 ### Title
