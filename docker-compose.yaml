@@ -1,0 +1,83 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:latest
+    container_name: database
+    environment:
+      POSTGRES_USER: engineer
+      POSTGRES_PASSWORD: notroot
+      POSTGRES_DB: database
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  flask_server:
+    build:
+      context: ./Server/Flask
+    container_name: flask_server
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: "postgres://engineer:notroot@db:5432/database"
+    volumes:
+      - ./Server/Flask:/app
+
+  go-gin_server:
+    build:
+      context: ./Server/Go-Gin
+    container_name: go-gin_server
+    ports:
+      - "5010:5010"
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: "postgres://engineer:notroot@db:5432/database?sslmode=disable"
+    volumes:
+      - ./Server/Go-Gin:/app
+
+#  node-ts_server:
+#    build:
+#      context: ./Server/Node-Express-TS
+#    container_name: node-ts_server
+#    ports:
+#      - "5020:5020"
+#    depends_on:
+#      - db
+#    environment:
+#      DATABASE_URL: "postgres://engineer:notroot@db:5432/database"
+#    volumes:
+#      - ./Server/Node-Express-TS:/app
+#
+#  node-js_server:
+#    build:
+#      context: ./Server/Node-Express-JS
+#    container_name: node-js_server
+#    ports:
+#      - "5030:5030"
+#    depends_on:
+#      - db
+#    environment:
+#      DATABASE_URL: "postgres://engineer:notroot@db:5432/database"
+#    volumes:
+#      - ./Server/Node-Express-JS:/app
+
+  frontend:
+    build:
+      context: ./Client/TypeScript
+    container_name: Frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./Client/TypeScript:/app
+    depends_on:
+      - go-gin_server
+      - flask_server
+#      - node-ts_server
+#      - node-js_server
+
+volumes:
+  postgres_data:

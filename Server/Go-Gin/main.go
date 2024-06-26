@@ -1,4 +1,4 @@
-package Server
+package main
 
 import (
 	"github.com/HMouaziz/GoDoIt/Server/config"
@@ -9,7 +9,7 @@ import (
 func main() {
 	config.ConnectDatabase()
 	router := gin.Default()
-	routers.SetupRouters(router)
+	routers.SetupRoutes(router)
 	err := router.Run(":8080")
 	if err != nil {
 		return
