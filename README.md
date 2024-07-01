@@ -56,7 +56,3 @@ This project is designed to analyze and compare the performance and ease of deve
 #### Production (Temporary for Testing)
 - Dockerized environment with separate containers for frontend, multiple backends (switchable), and database.
 - Automated deployment scripts.
-
----
-
-This document lays out a clear plan for your project to analyze different backend technologies using a common frontend and deployment method, aligning with your goal of technology evaluation and performance analysis.
