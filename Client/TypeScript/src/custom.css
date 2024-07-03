@@ -1,6 +1,11 @@
 
-.bg-content {
-    /*background: url('your-background-image.jpg') no-repeat center center;*/
+.bg-content-dark {
+    background: url('../public/assets/images/bg-dark.jpeg') no-repeat center center;
+    background-size: cover;
+}
+
+.bg-content-light {
+    background: url('../public/assets/images/bg-light.jpeg') no-repeat center center;
     background-size: cover;
 }
 
