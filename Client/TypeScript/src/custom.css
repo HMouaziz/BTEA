@@ -1,0 +1,10 @@
+
+.bg-content {
+    /*background: url('your-background-image.jpg') no-repeat center center;*/
+    background-size: cover;
+}
+
+.transition-transform {
+    transition: transform 0.5s ease-in-out;
+}
+

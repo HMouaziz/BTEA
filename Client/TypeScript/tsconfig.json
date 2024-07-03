@@ -1,25 +1,23 @@
 {
   "compilerOptions": {
+    "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@/assets/*": ["assets/*"],
-      "@/components/*": ["components/*"],
-      "@/context/*": ["context/*"],
-      "@/hooks/*": ["hooks/*"],
-      "@/pages/*": ["pages/*"],
-      "@/routes/*": ["routes/*"],
-      "@/services/*": ["services/*"],
-      "@/utils/*": ["utils/*"],
       "@/*": ["./src/*"]
-    }
+    },
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "jsx": "react-jsx",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
   },
+  "include": [],
   "files": [],
   "references": [
-    {
-      "path": "./tsconfig.app.json"
-    },
-    {
-      "path": "./tsconfig.node.json"
-    }
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
   ]
 }

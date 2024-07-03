@@ -3,6 +3,9 @@ import {ProtectedRoute} from "./ProtectedRoute.tsx";
 import {NotFound} from "../pages/NotFound.tsx";
 import {Unauthorized} from "../pages/Unauthorized.tsx";
 import {useAuth} from "../hooks/useAuth.tsx";
+import {Dashboard} from "../pages/Dashboard.tsx";
+import {Landing} from "../pages/Landing.tsx";
+import {Settings} from "../pages/Settings.tsx";
 
 const Routes = () => {
     const AuthContext = useAuth();
@@ -27,19 +30,13 @@ const Routes = () => {
                 {
                     path: "/",
                     element: (
-                        <>haha</>
-                    ),
-                },
-                {
-                    path: "/profile",
-                    element: (
-                        <>prof</>
+                        <Dashboard/>
                     ),
                 },
                 {
                     path: "/settings/*",
                     element: (
-                        <>sett</>
+                        <Settings/>
                     ),
                 },
             ],
@@ -50,19 +47,7 @@ const Routes = () => {
         {
             path: "/",
             element: (
-                <>hihi</>
-            ),
-        },
-        {
-            path: "/login",
-            element: (
-                <>lol</>
-            ),
-        },
-        {
-            path: "/register",
-            element: (
-                <>omg</>
+                <Landing/>
             ),
         },
         {
